@@ -1,0 +1,51 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of supplier/manufacturer</h2>
+<br />
+
+<p>
+    You can also create a new supplier via here
+    @Html.ActionLink("Create New", "Create", "Controller", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SupplierId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SupplierId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SupplierId })
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
