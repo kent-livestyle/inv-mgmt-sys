@@ -8,11 +8,11 @@
     "Supplier": null
   },
   {
-    "Id": "abf47d49-273d-4550-a95b-a212a9a83ea2",
-    "Name": null,
-    "SKU": null,
-    "Quantity": 0,
-    "ManufacturerId": null,
+    "Id": "79087cae-e8a0-43b0-9225-56d49567798f",
+    "Name": "AAA",
+    "SKU": "w2343",
+    "Quantity": 2,
+    "ManufacturerId": "be2bb5d9-d276-40a9-a44b-eb72b062610a",
     "Supplier": null
   }
 ]

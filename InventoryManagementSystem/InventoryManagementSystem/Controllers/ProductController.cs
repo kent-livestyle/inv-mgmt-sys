@@ -1,5 +1,4 @@
 ﻿using InventoryManagementSystem.Models;
-using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace InventoryManagementSystem.Controllers
             Supplier sup = new Supplier();
             sup.Suppliers = GetSuppliers();
             var products = Product.GetProducts();
-
+            ViewData["Suppliers"] = sup.Suppliers;
             return View(products);
         }
 
@@ -33,6 +32,7 @@ namespace InventoryManagementSystem.Controllers
         {
             Supplier sup = new Supplier();
             sup.Suppliers = GetSuppliers();
+            ViewData["Suppliers"] = sup.Suppliers;
             return View();
         }
 

@@ -4,14 +4,6 @@
     ViewBag.Title = "Create";
 }
 
-@{
-    var items = new List<SelectListItem>()
-{
-   new SelectListItem() { Text= "son", Value = "son" },
-   new SelectListItem() { Text= "daughter", Value = "daughter" }
- };
-}
-
 <h2>Create</h2>
 
 @using (Html.BeginForm())
@@ -49,10 +41,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ManufacturerId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @* TODO: reference supplier in IEnumerableSelectItemList *@
                 @Html.DropDownListFor(
-               model => model.ManufacturerId, items, "--Please select a supplier--", new { @class = "form-control" })
-
+               model => model.ManufacturerId, (IEnumerable<SelectListItem>)ViewData["Suppliers"],
+               "--Please select a supplier--", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ManufacturerId, "", new { @class = "text-danger" })
             </div>
         </div>
