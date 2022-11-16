@@ -1,16 +1,18 @@
 [
   {
-    "Id": "61074866-5004-4d0f-a761-88438ab6f47e",
-    "Name": "chang",
-    "SKU": "human001",
-    "Quantity": 1,
-    "ManufacturerId": "1"
-  },
-  {
     "Id": "f2ee90d3-4065-438f-bf54-6998134f5d98",
     "Name": "500ML glass",
     "SKU": "GLASS001500",
     "Quantity": 1000,
-    "ManufacturerId": "IKEA"
+    "ManufacturerId": "IKEAF",
+    "Supplier": null
+  },
+  {
+    "Id": "abf47d49-273d-4550-a95b-a212a9a83ea2",
+    "Name": null,
+    "SKU": null,
+    "Quantity": 0,
+    "ManufacturerId": null,
+    "Supplier": null
   }
 ]

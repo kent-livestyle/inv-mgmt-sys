@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Web;
+using System.Web.Mvc;
 
 namespace InventoryManagementSystem.Models
 {
@@ -36,10 +37,13 @@ namespace InventoryManagementSystem.Models
         public int Quantity { get; set; }
 
         /// <summary>
-        /// References of the supplier / manufacturer
+        /// TODO: References of the supplier / manufacturer ???
         /// </summary>
+        [Required]
         [Display(Name = "Supplier")]
         public string ManufacturerId { get; set; }
+        public IEnumerable<SelectListItem> Supplier { get; set; }
+
 
         /// <summary>
         /// Get list of the Products in JSON file

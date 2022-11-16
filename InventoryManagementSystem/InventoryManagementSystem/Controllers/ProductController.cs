@@ -1,4 +1,5 @@
 ﻿using InventoryManagementSystem.Models;
+using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,10 @@ namespace InventoryManagementSystem.Controllers
         // GET: Product
         public ActionResult Index()
         {
+            Supplier sup = new Supplier();
+            sup.Suppliers = GetSuppliers();
             var products = Product.GetProducts();
+
             return View(products);
         }
 
@@ -27,6 +31,8 @@ namespace InventoryManagementSystem.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
+            Supplier sup = new Supplier();
+            sup.Suppliers = GetSuppliers();
             return View();
         }
 
@@ -143,6 +149,28 @@ namespace InventoryManagementSystem.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public List<SelectListItem> GetSuppliers()
+        {
+            var list = new List<SelectListItem>();
+            try
+            {
+                // JsonFile
+                string haveJsonFile = System.IO.File.ReadAllText(Supplier.SupplierFile);
+                List<Supplier> suppliers = JsonConvert.DeserializeObject<List<Supplier>>(haveJsonFile);
+                foreach (Supplier supplier in suppliers)
+                {
+                    list.Add(new SelectListItem { Text = supplier.SupplierName, Value = supplier.SupplierId.ToString() });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                list.Add(new SelectListItem { Text = ex.Message.ToString(), Value = "0" });
+            }
+            return list;
         }
     }
 }

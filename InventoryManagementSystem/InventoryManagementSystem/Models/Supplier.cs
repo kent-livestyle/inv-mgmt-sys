@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.IO;
+using System.Web.UI.WebControls;
+using System.Web.Mvc;
 
 namespace InventoryManagementSystem.Models
 {
@@ -65,9 +67,6 @@ namespace InventoryManagementSystem.Models
             return suppliers;
         }
 
-        public enum TeaType
-        {
-            Tea, Coffee, GreenTea, BlackTea
-        }
+        public List<SelectListItem> Suppliers { get; set; }
     }
 }
